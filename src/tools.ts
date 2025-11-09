@@ -352,6 +352,173 @@ export const tools: Tool[] = [
       required: ['repository_id'],
     },
   },
+
+  // ==================== Add-on Management ====================
+
+  {
+    name: 'ha_list_addons',
+    description: '[READ-ONLY] List all available Home Assistant add-ons (installed and available to install). Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+  },
+  {
+    name: 'ha_list_installed_addons',
+    description: '[READ-ONLY] List only installed add-ons. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+  },
+  {
+    name: 'ha_addon_info',
+    description: '[READ-ONLY] Get detailed information about a specific add-on (configuration, state, version, etc). Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug (e.g., "core_mosquitto", "a0d7b954_zigbee2mqtt")',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_addon_logs',
+    description: '[READ-ONLY] Get add-on logs for troubleshooting. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug',
+        },
+        lines: {
+          type: 'number',
+          description: 'Number of log lines to return (default: 100)',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_install_addon',
+    description: '[WRITE] Install a Home Assistant add-on. MODIFIES system - requires approval. Installation can take several minutes.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug to install (e.g., "core_mosquitto" for Mosquitto MQTT, "a0d7b954_zigbee2mqtt" for Zigbee2MQTT)',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_uninstall_addon',
+    description: '[WRITE] Uninstall a Home Assistant add-on. DESTRUCTIVE - requires approval! Removes add-on and its data.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug to uninstall',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_start_addon',
+    description: '[WRITE] Start an add-on. MODIFIES system - requires approval.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug to start',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_stop_addon',
+    description: '[WRITE] Stop a running add-on. MODIFIES system - requires approval.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug to stop',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_restart_addon',
+    description: '[WRITE] Restart an add-on. MODIFIES system - requires approval.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug to restart',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_update_addon',
+    description: '[WRITE] Update an add-on to latest version. MODIFIES system - requires approval. Update can take several minutes.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug to update',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_get_addon_options',
+    description: '[READ-ONLY] Get add-on configuration options. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug',
+        },
+      },
+      required: ['slug'],
+    },
+  },
+  {
+    name: 'ha_set_addon_options',
+    description: '[WRITE] Set add-on configuration options. MODIFIES configuration - requires approval. Add-on may need restart.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: {
+          type: 'string',
+          description: 'Add-on slug',
+        },
+        options: {
+          type: 'object',
+          description: 'Configuration options to set (key-value pairs)',
+        },
+      },
+      required: ['slug', 'options'],
+    },
+  },
 ];
 
 

@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2025-11-09
+
+### 🚀 MAJOR: Complete Add-on Management
+
+**Full add-on lifecycle management** - Install, configure, and control Home Assistant add-ons via Cursor AI!
+
+### New MCP Tools (12 add-on tools)
+
+**Add-on Lifecycle:**
+- `ha_list_addons` - List all available and installed add-ons
+- `ha_list_installed_addons` - List only installed add-ons
+- `ha_addon_info` - Get detailed add-on information
+- `ha_addon_logs` - Read add-on logs for troubleshooting
+- `ha_install_addon` - Install add-on (Zigbee2MQTT, Node-RED, etc)
+- `ha_uninstall_addon` - Uninstall add-on
+- `ha_start_addon` - Start add-on service
+- `ha_stop_addon` - Stop add-on service
+- `ha_restart_addon` - Restart add-on service
+- `ha_update_addon` - Update add-on to latest version
+- `ha_get_addon_options` - Get add-on configuration
+- `ha_set_addon_options` - Configure add-on options
+
+### Features
+
+**Agent v2.3.0 adds Supervisor API:**
+- Full add-on management via Supervisor API
+- Timeout handling for long operations
+- Error handling and user-friendly messages
+- Log monitoring capabilities
+
+**Full workflow now works:**
+```
+✅ "Install Zigbee2MQTT for my Sonoff dongle"
+✅ "Setup Mosquitto MQTT broker"
+✅ "My Zigbee2MQTT isn't working - check logs and fix"
+✅ "Update all my add-ons"
+```
+
+### README Improvements
+
+- ✅ Added "🔌 Manage Add-ons & Services" section
+- ✅ Clear examples: Zigbee2MQTT, MQTT, Node-RED
+- ✅ Shows natural language prompts for add-on operations
+- ✅ Better visibility of service management features
+
+**Impact:**
+- Complete infrastructure setup automation
+- Simplified Zigbee/MQTT configuration
+- Automated add-on troubleshooting
+- Aligned with agent v2.3.0
+
+**Requires:** HA Cursor Agent v2.3.0+
+
 ## [2.2.2] - 2025-11-09
 
 ### 📝 Documentation Enhancement

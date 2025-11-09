@@ -195,5 +195,82 @@ export class HAClient {
     const response = await this.client.get(`/api/hacs/repository/${repositoryId}`);
     return response.data;
   }
+
+  // Add-ons API
+  async listAvailableAddons(): Promise<any> {
+    const response = await this.client.get(`/api/addons/available`);
+    return response.data;
+  }
+
+  async listInstalledAddons(): Promise<any> {
+    const response = await this.client.get(`/api/addons/installed`);
+    return response.data;
+  }
+
+  async getAddonInfo(slug: string): Promise<any> {
+    const response = await this.client.get(`/api/addons/${slug}/info`);
+    return response.data;
+  }
+
+  async getAddonLogs(slug: string, lines?: number): Promise<any> {
+    const response = await this.client.get(`/api/addons/${slug}/logs`, {
+      params: lines ? { lines } : {},
+    });
+    return response.data;
+  }
+
+  async installAddon(slug: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/install`, {}, {
+      timeout: 600000, // 10 minutes for installation
+    });
+    return response.data;
+  }
+
+  async uninstallAddon(slug: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/uninstall`);
+    return response.data;
+  }
+
+  async startAddon(slug: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/start`);
+    return response.data;
+  }
+
+  async stopAddon(slug: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/stop`);
+    return response.data;
+  }
+
+  async restartAddon(slug: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/restart`);
+    return response.data;
+  }
+
+  async updateAddon(slug: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/update`, {}, {
+      timeout: 600000, // 10 minutes for update
+    });
+    return response.data;
+  }
+
+  async getAddonOptions(slug: string): Promise<any> {
+    const response = await this.client.get(`/api/addons/${slug}/options`);
+    return response.data;
+  }
+
+  async setAddonOptions(slug: string, options: any): Promise<any> {
+    const response = await this.client.post(`/api/addons/${slug}/options`, { options });
+    return response.data;
+  }
+
+  async listRepositories(): Promise<any> {
+    const response = await this.client.get(`/api/addons/repositories`);
+    return response.data;
+  }
+
+  async addRepository(repositoryUrl: string): Promise<any> {
+    const response = await this.client.post(`/api/addons/repositories/add`, { repository_url: repositoryUrl });
+    return response.data;
+  }
 }
 

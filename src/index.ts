@@ -242,6 +242,85 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
         };
 
+      // Add-on Management
+      case 'ha_list_addons':
+        result = await haClient.listAvailableAddons();
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_list_installed_addons':
+        result = await haClient.listInstalledAddons();
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_addon_info':
+        result = await haClient.getAddonInfo(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_addon_logs':
+        result = await haClient.getAddonLogs(
+          args.slug as string,
+          args.lines as number | undefined
+        );
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_install_addon':
+        result = await haClient.installAddon(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_uninstall_addon':
+        result = await haClient.uninstallAddon(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_start_addon':
+        result = await haClient.startAddon(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_stop_addon':
+        result = await haClient.stopAddon(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_restart_addon':
+        result = await haClient.restartAddon(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_update_addon':
+        result = await haClient.updateAddon(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_get_addon_options':
+        result = await haClient.getAddonOptions(args.slug as string);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_set_addon_options':
+        result = await haClient.setAddonOptions(
+          args.slug as string,
+          args.options as any
+        );
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
       default:
         throw new Error(`Unknown tool: ${name}`);
     }

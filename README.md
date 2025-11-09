@@ -63,6 +63,21 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 3. ✅ Install integrations, themes, plugins
 4. ✅ Keep everything updated
 
+### 🔌 Manage Add-ons & Services
+
+- 💬 *"Install Zigbee2MQTT and configure it for my Sonoff dongle"*
+- 💬 *"Setup Mosquitto MQTT broker"*
+- 💬 *"Install Node-RED for visual automations"*
+- 💬 *"My Zigbee2MQTT isn't working - check the logs and fix it"*
+- 💬 *"Update all my add-ons"*
+
+**AI will:**
+1. ✅ Install add-ons (Zigbee2MQTT, Node-RED, ESPHome)
+2. ✅ Auto-detect hardware (USB coordinators)
+3. ✅ Configure options
+4. ✅ Start/stop/restart services
+5. ✅ Monitor logs and troubleshoot
+
 ### 🔧 Intelligent Configuration
 
 - 💬 *"Optimize my heating system based on room priorities and occupancy patterns"*
