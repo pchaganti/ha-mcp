@@ -557,6 +557,66 @@ export const tools: Tool[] = [
       required: ['repository_url'],
     },
   },
+
+  // ==================== Lovelace Dashboard ====================
+
+  {
+    name: 'ha_analyze_entities_for_dashboard',
+    description: '[READ-ONLY] Analyze all entities and provide dashboard generation recommendations. Groups entities by domain, area, and type. Shows entity counts and suggests views. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+  },
+  {
+    name: 'ha_generate_dashboard',
+    description: '[READ-ONLY] Generate beautiful Lovelace dashboard configuration based on your entities. Creates views for lights, climate, media, sensors automatically. Returns YAML ready to apply. Safe operation - only generates config, does not modify HA.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        style: {
+          type: 'string',
+          enum: ['modern', 'classic', 'minimal'],
+          description: 'Dashboard style (default: modern)',
+        },
+        title: {
+          type: 'string',
+          description: 'Dashboard title (default: Home)',
+        },
+        include_views: {
+          type: 'array',
+          items: { type: 'string' },
+          description: 'Optional: specific views to include (e.g., ["lights", "climate"])',
+        },
+      },
+    },
+  },
+  {
+    name: 'ha_preview_dashboard',
+    description: '[READ-ONLY] Preview current Lovelace dashboard configuration. Shows existing ui-lovelace.yaml if configured. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+  },
+  {
+    name: 'ha_apply_dashboard',
+    description: '[WRITE] Apply generated dashboard configuration to Home Assistant. Overwrites ui-lovelace.yaml. Creates automatic Git backup. MODIFIES configuration - requires approval!',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        dashboard_config: {
+          type: 'object',
+          description: 'Dashboard configuration object (from ha_generate_dashboard)',
+        },
+        create_backup: {
+          type: 'boolean',
+          description: 'Create Git backup before applying (default: true)',
+        },
+      },
+      required: ['dashboard_config'],
+    },
+  },
 ];
 
 

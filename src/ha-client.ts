@@ -299,5 +299,33 @@ export class HAClient {
     const response = await this.client.post(`/api/addons/repositories/add`, { repository_url: repositoryUrl });
     return response.data;
   }
+
+  // Lovelace Dashboard API
+  async analyzeEntitiesForDashboard(): Promise<any> {
+    const response = await this.client.get(`/api/lovelace/analyze`);
+    return response.data;
+  }
+
+  async generateDashboard(style: string = 'modern', title: string = 'Home', includeViews?: string[]): Promise<any> {
+    const response = await this.client.post(`/api/lovelace/generate`, {
+      style,
+      title,
+      include_views: includeViews
+    });
+    return response.data;
+  }
+
+  async previewDashboard(): Promise<any> {
+    const response = await this.client.get(`/api/lovelace/preview`);
+    return response.data;
+  }
+
+  async applyDashboard(dashboardConfig: any, createBackup: boolean = true): Promise<any> {
+    const response = await this.client.post(`/api/lovelace/apply`, {
+      dashboard_config: dashboardConfig,
+      create_backup: createBackup
+    });
+    return response.data;
+  }
 }
 

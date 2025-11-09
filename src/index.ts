@@ -345,6 +345,38 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
         };
 
+      // Lovelace Dashboard
+      case 'ha_analyze_entities_for_dashboard':
+        result = await haClient.analyzeEntitiesForDashboard();
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_generate_dashboard':
+        result = await haClient.generateDashboard(
+          args.style as string || 'modern',
+          args.title as string || 'Home',
+          args.include_views as string[]
+        );
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_preview_dashboard':
+        result = await haClient.previewDashboard();
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
+      case 'ha_apply_dashboard':
+        result = await haClient.applyDashboard(
+          args.dashboard_config as any,
+          args.create_backup !== false
+        );
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
       default:
         throw new Error(`Unknown tool: ${name}`);
     }
