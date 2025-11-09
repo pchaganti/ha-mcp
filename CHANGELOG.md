@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.3] - 2025-11-09
+
+### 🐛 Critical Bug Fix
+
+**Fixed Health Check Endpoint:**
+- ✅ Changed healthCheck() from GET `/` to GET `/api/health`
+- ✅ MCP client now successfully connects to agent on startup
+- ✅ Fixes "Failed to connect to HA Cursor Agent" error
+
+**Root cause:**
+- healthCheck() was calling wrong endpoint: `/` (ingress panel HTML)
+- Should call: `/api/health` (health check JSON API)
+- Agent was working, but MCP couldn't validate connection
+- MCP exits if health check fails
+
+**Impact:**
+- MCP server now starts successfully
+- All tools become available in Cursor
+- Connection validation works correctly
+
+**Changes:**
+- src/ha-client.ts: healthCheck endpoint fix
+- build/: recompiled TypeScript
+
 ## [2.3.1] - 2025-11-09
 
 ### 🔧 Feature: Repository Management

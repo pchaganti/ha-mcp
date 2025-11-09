@@ -154,7 +154,7 @@ export class HAClient {
   }
 
   async healthCheck(): Promise<any> {
-    const response = await this.client.get(`/`);
+    const response = await this.client.get(`/api/health`);
     return response.data;
   }
 
