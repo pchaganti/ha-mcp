@@ -358,16 +358,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
         };
 
-      case 'ha_generate_dashboard':
-        result = await haClient.generateDashboard(
-          args.style as string || 'modern',
-          args.title as string || 'Home',
-          args.include_views as string[]
-        );
-        return {
-          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
-        };
-
       case 'ha_preview_dashboard':
         result = await haClient.previewDashboard();
         return {

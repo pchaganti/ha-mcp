@@ -570,33 +570,10 @@ export const tools: Tool[] = [
 
   {
     name: 'ha_analyze_entities_for_dashboard',
-    description: '[READ-ONLY] Analyze all entities and provide dashboard generation recommendations. Groups entities by domain, area, and type. Shows entity counts and suggests views. Safe operation - only reads data.',
+    description: '[READ-ONLY] Get complete entity list for AI-driven dashboard generation. Returns entities grouped by domain with attributes. AI will use this data to generate custom dashboard based on user requirements. Safe operation - only reads data.',
     inputSchema: {
       type: 'object',
       properties: {},
-    },
-  },
-  {
-    name: 'ha_generate_dashboard',
-    description: '[READ-ONLY] Generate beautiful Lovelace dashboard configuration based on your entities. Creates views for lights, climate, media, sensors automatically. Returns YAML ready to apply. Safe operation - only generates config, does not modify HA.',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        style: {
-          type: 'string',
-          enum: ['modern', 'classic', 'minimal'],
-          description: 'Dashboard style (default: modern)',
-        },
-        title: {
-          type: 'string',
-          description: 'Dashboard title (default: Home)',
-        },
-        include_views: {
-          type: 'array',
-          items: { type: 'string' },
-          description: 'Optional: specific views to include (e.g., ["lights", "climate"])',
-        },
-      },
     },
   },
   {
