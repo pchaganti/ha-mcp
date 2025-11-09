@@ -11,6 +11,15 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 [![NPM Version](https://img.shields.io/npm/v/@coolver/mcp-home-assistant)](https://www.npmjs.com/package/@coolver/mcp-home-assistant)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+### ✨ Key Features
+
+- 🤖 **Natural language** - describe what you want, AI builds it
+- 🎯 **Device-aware** - analyzes YOUR actual setup
+- 💾 **Auto-backup** - every change saved in Git automatically
+- ⏪ **Instant rollback** - restore any previous version with one command
+- 🔄 **Component management** - automations, scripts, helpers, entities
+- 📊 **Real-time logs** - debug issues directly through Cursor AI
+
 ---
 
 ## 🎯 What can you do?
@@ -192,6 +201,50 @@ turn on TV and soundbar. Create scenes and automations.
 - Build automation with all steps
 - Add script for easy activation
 - Customize based on YOUR devices
+
+### 💾 Git Versioning & Rollback
+
+**Every change is automatically backed up in Git!** You can view history and rollback anytime.
+
+```
+Show me the last 10 changes to my configuration
+```
+
+**AI will:**
+- Display commit history with messages
+- Show what was changed and when
+- Help you identify specific versions
+
+```
+Something broke! Rollback to the version from yesterday
+```
+
+**AI will:**
+- Show recent commits
+- Find the commit from yesterday
+- Rollback your configuration
+- Verify everything works
+
+```
+Show me what changed in commit abc123
+```
+
+**AI will:**
+- Display detailed diff of that commit
+- Explain what files were modified
+- Help you understand the changes
+
+**Available Git tools:**
+- `ha_git_history` - View commit history (last 20 commits)
+- `ha_git_diff` - Compare commits or see uncommitted changes
+- `ha_git_rollback` - Restore to any previous version
+- `ha_git_commit` - Manual backup with custom message
+
+**Example workflow:**
+1. Make changes → Automatically backed up ✅
+2. Something breaks? → Ask AI to show history
+3. AI shows commits → You identify good version
+4. AI rolls back → Everything restored! 🎉
 
 ---
 
