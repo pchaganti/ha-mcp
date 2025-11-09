@@ -11,10 +11,11 @@ import { tools } from './tools.js';
 
 // Get configuration from environment
 const HA_AGENT_URL = process.env.HA_AGENT_URL || 'http://homeassistant.local:8099';
-const HA_TOKEN = process.env.HA_TOKEN;
+// Support both new and old env var names for backward compatibility
+const HA_TOKEN = process.env.HA_AGENT_KEY || process.env.HA_TOKEN;
 
 if (!HA_TOKEN) {
-  console.error('Error: HA_TOKEN environment variable is required');
+  console.error('Error: HA_AGENT_KEY (or HA_TOKEN) environment variable is required');
   console.error('Please set it in ~/.cursor/mcp.json');
   process.exit(1);
 }
