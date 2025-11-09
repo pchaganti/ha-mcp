@@ -243,6 +243,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
 
       // Add-on Management
+      case 'ha_list_store_addons':
+        result = await haClient.listStoreAddons();
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
       case 'ha_list_addons':
         result = await haClient.listAvailableAddons();
         return {

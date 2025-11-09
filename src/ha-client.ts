@@ -214,6 +214,11 @@ export class HAClient {
   }
 
   // Add-ons API
+  async listStoreAddons(): Promise<any> {
+    const response = await this.client.get(`/api/addons/store`);
+    return response.data;
+  }
+
   async listAvailableAddons(): Promise<any> {
     const response = await this.client.get(`/api/addons/available`);
     return response.data;

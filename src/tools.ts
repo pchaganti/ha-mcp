@@ -356,8 +356,16 @@ export const tools: Tool[] = [
   // ==================== Add-on Management ====================
 
   {
+    name: 'ha_list_store_addons',
+    description: '[READ-ONLY] List ALL add-ons from add-on store catalog (complete list from all repositories). Use this to browse available add-ons and make recommendations. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+  },
+  {
     name: 'ha_list_addons',
-    description: '[READ-ONLY] List all available Home Assistant add-ons (installed and available to install). Safe operation - only reads data.',
+    description: '[READ-ONLY] List available Home Assistant add-ons (limited list). For complete catalog, use ha_list_store_addons. Safe operation - only reads data.',
     inputSchema: {
       type: 'object',
       properties: {},
