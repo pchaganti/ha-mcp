@@ -339,5 +339,11 @@ export class HAClient {
     });
     return response.data;
   }
+
+  // System API
+  async restartHomeAssistant(): Promise<any> {
+    const response = await this.client.post(`/api/system/restart`);
+    return response.data;
+  }
 }
 

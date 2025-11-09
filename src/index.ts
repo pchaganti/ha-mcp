@@ -174,6 +174,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
         };
 
+      case 'ha_restart':
+        result = await haClient.restartHomeAssistant();
+        return {
+          content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
+        };
+
       case 'ha_get_logs':
         result = await haClient.getLogs(args.limit as number, args.level as string);
         // Format logs for better readability

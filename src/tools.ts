@@ -251,6 +251,14 @@ export const tools: Tool[] = [
     },
   },
   {
+    name: 'ha_restart',
+    description: '[WRITE] FULL restart of Home Assistant. Completely restarts HA Core. Use when configuration changes require full restart (e.g., new dashboards, integrations). HA will be unavailable for 30-60 seconds. DISRUPTIVE - requires approval!',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+  },
+  {
     name: 'ha_get_logs',
     description: '[READ-ONLY] Get agent logs to troubleshoot issues. Safe operation - only reads data.',
     inputSchema: {
