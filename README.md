@@ -66,8 +66,8 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 Before installing, you need:
 
 1. **Home Assistant** running (any version)
-2. **[HA Cursor Agent](https://github.com/Coolver/home-assistant-cursor-agent)** v2.0.0+ installed as add-on
-3. **API Key** from HA Cursor Agent (auto-generated on first start)
+2. **[HA Cursor Agent](https://github.com/Coolver/home-assistant-cursor-agent)** v2.0.1+ installed as add-on
+3. **Agent Key** from HA Cursor Agent (auto-generated on first start)
 4. **Cursor AI** editor installed
 
 ---
@@ -324,7 +324,7 @@ Show me what changed in commit abc123
 | Variable | Description | Required | Default |
 |----------|-------------|----------|---------|
 | `HA_AGENT_URL` | URL of HA Cursor Agent | Yes | `http://homeassistant.local:8099` |
-| `HA_AGENT_KEY` | Agent API Key | Yes | - |
+| `HA_AGENT_KEY` | Agent Key for authentication | Yes | - |
 
 ### Custom Agent URL
 
@@ -390,11 +390,12 @@ The MCP server provides these tools to Cursor AI:
 
 ## 🐛 Troubleshooting
 
-### "Invalid token" error
+### "Invalid Agent Key" error
 
-1. Check your token is correct in `mcp.json`
-2. Make sure HA Cursor Agent is running
-3. Verify agent is accessible: `curl http://homeassistant.local:8099/api/health`
+1. Check your Agent Key is correct in `mcp.json` (under `HA_AGENT_KEY`)
+2. Regenerate key if needed: Settings → Add-ons → HA Cursor Agent → Open Web UI
+3. Make sure HA Cursor Agent is running
+4. Verify agent is accessible: `curl http://homeassistant.local:8099/api/health`
 
 ### "Connection refused"
 
@@ -416,10 +417,11 @@ This will display what's happening in the agent.
 ## 🔐 Security
 
 - ✅ All communication goes through HA Cursor Agent (port 8099)
-- ✅ Agent validates your token against Home Assistant
-- ✅ Agent uses internal SUPERVISOR_TOKEN for operations
-- ✅ Your token is stored only in local config file
-- ⚠️ **Never commit `mcp.json` with your token to git!**
+- ✅ Agent Key authentication for MCP clients
+- ✅ Agent validates Agent Key for all requests
+- ✅ Agent uses internal SUPERVISOR_TOKEN for Home Assistant API operations
+- ✅ Your Agent Key is stored only in local Cursor config file
+- ⚠️ **Never commit `mcp.json` with your Agent Key to git!**
 
 ---
 
