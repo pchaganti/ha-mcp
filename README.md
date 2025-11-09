@@ -18,7 +18,8 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 - 💾 **Auto-backup** - every change saved in Git automatically
 - ⏪ **Instant rollback** - restore any previous version with one command
 - 🔄 **Component management** - automations, scripts, helpers, entities
-- 📊 **Real-time logs** - debug issues directly through Cursor AI
+- 📊 **Log analysis** - monitor system behavior, detect anomalies, suggest optimizations
+- 🐛 **Debug assistance** - AI reads logs and identifies issues automatically
 
 ---
 
@@ -49,6 +50,12 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 
 - 💬 *"Why isn't my bedroom automation working? Check the logs and fix it"*
 - 💬 *"My climate control keeps turning off early - analyze and improve the logic"*
+
+### 📊 Monitor and Analyze
+
+- 💬 *"Analyze my logs and tell me if my heating system is working efficiently"*
+- 💬 *"Check if my automations are triggering too often or missing events"*
+- 💬 *"Compare actual system behavior with expected logic and suggest improvements"*
 
 **No manual YAML editing. No copy-pasting. Just describe what you want!** 🚀
 
@@ -187,6 +194,52 @@ Check the logs, analyze the automation, and fix the issue.
 - Review agent logs for errors
 - Identify the problem
 - Fix and test the solution
+
+### 📊 Monitor & Analyze System Behavior
+
+**Cursor AI can read logs and analyze how your system actually works:**
+
+```
+Read the logs and analyze how my climate control system 
+is performing. Is it working as expected?
+```
+
+**AI will:**
+- Read Home Assistant logs
+- Analyze automation triggers and actions
+- Compare actual behavior vs. expected logic
+- Identify deviations or inefficiencies
+- Provide detailed performance report
+
+```
+My heating system seems inefficient. Analyze the logs 
+from the past day and suggest improvements.
+```
+
+**AI will:**
+- Extract relevant log entries
+- Identify patterns (frequent on/off cycles, timing issues)
+- Detect edge cases or unexpected behavior
+- Calculate metrics (runtime, cycles, efficiency)
+- Suggest specific optimizations
+
+```
+Monitor my automations and tell me if they're triggering 
+too often or missing important events.
+```
+
+**AI will:**
+- Track automation execution frequency
+- Identify over-triggering or under-triggering
+- Spot missing conditions or edge cases
+- Recommend refinements to triggers and conditions
+
+**Use cases:**
+- 🔍 **Performance audit** - "Are my automations running efficiently?"
+- ⚠️ **Anomaly detection** - "Did anything unusual happen yesterday?"
+- 📈 **Usage analysis** - "How often does my security system trigger?"
+- 🎯 **Optimization** - "Can we reduce the number of automation runs?"
+- 🐛 **Root cause analysis** - "Why did the boiler turn off unexpectedly?"
 
 ### 🎨 Create Custom Solutions
 
