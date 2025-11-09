@@ -320,10 +320,12 @@ export class HAClient {
     return response.data;
   }
 
-  async applyDashboard(dashboardConfig: any, createBackup: boolean = true): Promise<any> {
+  async applyDashboard(dashboardConfig: any, createBackup: boolean = true, filename: string = 'ai-dashboard.yaml', registerDashboard: boolean = true): Promise<any> {
     const response = await this.client.post(`/api/lovelace/apply`, {
       dashboard_config: dashboardConfig,
-      create_backup: createBackup
+      create_backup: createBackup,
+      filename: filename,
+      register_dashboard: registerDashboard
     });
     return response.data;
   }

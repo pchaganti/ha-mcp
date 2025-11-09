@@ -371,7 +371,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case 'ha_apply_dashboard':
         result = await haClient.applyDashboard(
           args.dashboard_config as any,
-          args.create_backup !== false
+          args.create_backup !== false,
+          args.filename as string || 'ai-dashboard.yaml',
+          args.register_dashboard !== false
         );
         return {
           content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],

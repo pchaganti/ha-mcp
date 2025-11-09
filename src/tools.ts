@@ -601,7 +601,7 @@ export const tools: Tool[] = [
   },
   {
     name: 'ha_apply_dashboard',
-    description: '[WRITE] Apply generated dashboard configuration to Home Assistant. Overwrites ui-lovelace.yaml. Creates automatic Git backup. MODIFIES configuration - requires approval!',
+    description: '[WRITE] Apply generated dashboard configuration to Home Assistant. Creates file, auto-registers in configuration.yaml, and reloads config. Creates automatic Git backup. MODIFIES configuration - requires approval!',
     inputSchema: {
       type: 'object',
       properties: {
@@ -612,6 +612,14 @@ export const tools: Tool[] = [
         create_backup: {
           type: 'boolean',
           description: 'Create Git backup before applying (default: true)',
+        },
+        filename: {
+          type: 'string',
+          description: 'Dashboard filename (default: ai-dashboard.yaml)',
+        },
+        register_dashboard: {
+          type: 'boolean',
+          description: 'Auto-register dashboard in configuration.yaml (default: true)',
         },
       },
       required: ['dashboard_config'],
