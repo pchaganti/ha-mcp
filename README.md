@@ -49,6 +49,20 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 4. ✅ Test and validate everything
 5. ✅ Deploy - all automatically!
 
+### 📦 Extend with Community Integrations
+
+- 💬 *"Install HACS for me"*
+- 💬 *"Search for Xiaomi integrations in HACS"*
+- 💬 *"Install Xiaomi Gateway 3 from HACS"*
+- 💬 *"What themes are available in HACS?"*
+- 💬 *"Update all my HACS repositories"*
+
+**AI will:**
+1. ✅ Install HACS automatically
+2. ✅ Search 1000+ community repositories
+3. ✅ Install integrations, themes, plugins
+4. ✅ Keep everything updated
+
 ### 🔧 Intelligent Configuration
 
 - 💬 *"Optimize my heating system based on room priorities and occupancy patterns"*

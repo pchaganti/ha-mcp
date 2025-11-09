@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.2] - 2025-11-09
+
+### 📝 Documentation Enhancement
+
+**README Improvements**
+- ✅ Added "📦 Extend with Community Integrations" section to main capabilities
+- ✅ Clear examples of HACS usage with natural language prompts
+- ✅ Better visibility of community integrations feature (1000+ repos)
+- ✅ Improved feature discoverability in main README
+
+**Impact:**
+- Users better understand HACS capabilities from README
+- Clear examples of how to use HACS through Cursor AI
+- Better alignment with agent v2.2.3 documentation
+
 ## [2.2.1] - 2025-11-09
 
 ### 🧠 Tool Descriptions Enhancement
