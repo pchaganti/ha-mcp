@@ -1,4 +1,20 @@
 import axios, { AxiosInstance } from 'axios';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Read version from package.json
+let MCP_VERSION = 'unknown';
+try {
+  const packagePath = join(__dirname, '..', 'package.json');
+  const packageJson = JSON.parse(readFileSync(packagePath, 'utf-8'));
+  MCP_VERSION = packageJson.version;
+} catch (error) {
+  console.error('Warning: Could not read MCP version from package.json');
+}
 
 export interface HAClientConfig {
   baseURL: string;
@@ -14,6 +30,7 @@ export class HAClient {
       headers: {
         'Authorization': `Bearer ${config.token}`,
         'Content-Type': 'application/json',
+        'X-MCP-Client-Version': MCP_VERSION,
       },
       timeout: 30000,
     });

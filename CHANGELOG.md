@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.4] - 2025-11-09
+
+### 🔍 Feature: MCP Client Version Tracking
+
+**Send MCP version to agent in request headers:**
+- ✅ Added `X-MCP-Client-Version` header to all requests
+- ✅ Version read from package.json automatically
+- ✅ Enables agent to log which MCP version is connecting
+
+**Changes:**
+- src/ha-client.ts: added version reading from package.json
+- src/ha-client.ts: added X-MCP-Client-Version to axios headers
+- package.json: 2.3.3 → 2.3.4
+
+**Impact:**
+- Agent can now see MCP client version in logs
+- Better debugging and compatibility tracking
+- Helps identify version mismatches
+
+**Requires:** HA Cursor Agent v2.3.13+
+
 ## [2.3.3] - 2025-11-09
 
 ### 🐛 Critical Bug Fix
