@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Coolver/mcp-home-assistant.git"
+    "url": "https://github.com/Coolver/home-assistant-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/Coolver/mcp-home-assistant/issues"
+    "url": "https://github.com/Coolver/home-assistant-mcp/issues"
   },
-  "homepage": "https://github.com/Coolver/mcp-home-assistant#readme",
+  "homepage": "https://github.com/Coolver/home-assistant-mcp#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
     "axios": "^1.6.0"

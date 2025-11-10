@@ -568,8 +568,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 💬 Support
 
-- 🐛 **Issues:** [GitHub Issues](https://github.com/Coolver/mcp-home-assistant/issues)
-- 💡 **Discussions:** [GitHub Discussions](https://github.com/Coolver/mcp-home-assistant/discussions)
+- 🐛 **Issues:** [GitHub Issues](https://github.com/Coolver/home-assistant-mcp/issues)
+- 💡 **Discussions:** [GitHub Discussions](https://github.com/Coolver/home-assistant-mcp/discussions)
 
 ---
 

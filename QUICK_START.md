@@ -32,7 +32,7 @@ Go to: https://github.com/new
 cd /Users/Coolver_1/Projects/smart-home/mcp-home-assistant
 
 # Add remote
-git remote add origin https://github.com/Coolver/mcp-home-assistant.git
+git remote add origin https://github.com/Coolver/home-assistant-mcp.git
 
 # Push
 git branch -M main
@@ -139,12 +139,12 @@ Then in `~/.cursor/mcp.json`:
 ### Check Your Package
 
 - **NPM page:** https://www.npmjs.com/package/@coolver/mcp-home-assistant
-- **GitHub:** https://github.com/Coolver/mcp-home-assistant
+- **GitHub:** https://github.com/Coolver/home-assistant-mcp
 - **Downloads:** https://npm-stat.com/charts.html?package=@coolver/mcp-home-assistant
 
 ### Create GitHub Release
 
-1. Go to: https://github.com/Coolver/mcp-home-assistant/releases/new
+1. Go to: https://github.com/Coolver/home-assistant-mcp/releases/new
 2. Tag: `v1.0.0`
 3. Title: `MCP Home Assistant v1.0.0`
 4. Description: Copy from CHANGELOG.md
@@ -216,7 +216,7 @@ git push origin v1.0.1
 ```bash
 # 1. Create GitHub repo (web)
 # 2. Push to GitHub
-git remote add origin https://github.com/Coolver/mcp-home-assistant.git
+git remote add origin https://github.com/Coolver/home-assistant-mcp.git
 git push -u origin main
 git tag v1.0.0 && git push origin v1.0.0
 
@@ -226,6 +226,8 @@ npm publish --access public
 
 # Done! 🎉
 ```
+
+
 
 
 
