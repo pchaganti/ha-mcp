@@ -9,13 +9,29 @@ import { HAClient } from './ha-client.js';
 type ToolHandler = (client: HAClient, args: any) => Promise<{ content: Array<{ type: string; text: string }>; isError?: boolean }>;
 
 // Helper to format JSON response
-const jsonResponse = (data: any) => ({
-  content: [{ type: 'text', text: JSON.stringify(data, null, 2) }],
-});
+const jsonResponse = (data: any) => {
+  // Handle undefined, null, or other edge cases
+  let text: string;
+  try {
+    if (data === undefined) {
+      text = 'undefined';
+    } else if (data === null) {
+      text = 'null';
+    } else {
+      text = JSON.stringify(data, null, 2);
+    }
+  } catch (error) {
+    text = `Error serializing response: ${error}`;
+  }
+  
+  return {
+    content: [{ type: 'text', text }],
+  };
+};
 
 // Helper to format success message
 const successResponse = (message: string) => ({
-  content: [{ type: 'text', text: message }],
+  content: [{ type: 'text', text: message || 'Success' }],
 });
 
 /**
