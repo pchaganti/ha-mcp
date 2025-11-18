@@ -339,5 +339,16 @@ export class HAClient {
     const response = await this.client.post(`/api/system/restart`);
     return response.data;
   }
+
+  // Service API
+  async callService(domain: string, service: string, serviceData?: any, target?: any): Promise<any> {
+    const response = await this.client.post(`/api/entities/call_service`, {
+      domain,
+      service,
+      service_data: serviceData,
+      target: target,
+    });
+    return response.data;
+  }
 }
 

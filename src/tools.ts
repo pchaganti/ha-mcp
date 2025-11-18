@@ -675,6 +675,35 @@ export const tools: Tool[] = [
       required: ['filename'],
     },
   },
+
+  // ==================== Service Calls ====================
+
+  {
+    name: 'ha_call_service',
+    description: '[WRITE] Call a Home Assistant service. MODIFIES system state - requires approval. Examples: number.set_value, light.turn_on, climate.set_temperature, switch.turn_on, etc.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        domain: {
+          type: 'string',
+          description: 'Service domain (e.g., "number", "light", "climate", "switch", "input_number")',
+        },
+        service: {
+          type: 'string',
+          description: 'Service name (e.g., "set_value", "turn_on", "set_temperature", "turn_off")',
+        },
+        service_data: {
+          type: 'object',
+          description: 'Service data (e.g., {"entity_id": "number.alex_trv_local_temperature_offset", "value": -2.0} for number.set_value)',
+        },
+        target: {
+          type: 'object',
+          description: 'Target entity/entities (e.g., {"entity_id": "light.living_room"} or {"entity_id": ["light.room1", "light.room2"]})',
+        },
+      },
+      required: ['domain', 'service'],
+    },
+  },
 ];
 
 

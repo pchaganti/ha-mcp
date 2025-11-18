@@ -306,5 +306,16 @@ export const toolHandlers: Record<string, ToolHandler> = {
     );
     return jsonResponse(result);
   },
+
+  // Service Calls
+  'ha_call_service': async (client, args) => {
+    const result = await client.callService(
+      args.domain,
+      args.service,
+      args.service_data,
+      args.target
+    );
+    return jsonResponse(result);
+  },
 };
 

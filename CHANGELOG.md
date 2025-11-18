@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.1] - 2025-11-18
+
+### ✨ NEW: Service Call Support
+
+**Added ability to call Home Assistant services via MCP**
+
+**New Tool:**
+- `ha_call_service` - Call any Home Assistant service (number.set_value, light.turn_on, climate.set_temperature, etc.)
+
+**Features:**
+- ✅ Call any Home Assistant service through MCP
+- ✅ Support for service_data and target parameters
+- ✅ Examples: set number values, control lights, adjust thermostats, toggle switches
+- ✅ Full integration with Home Assistant API
+
+**Use Cases:**
+- Set TRV temperature offsets: `number.set_value` with `{"entity_id": "number.alex_trv_local_temperature_offset", "value": -2.0}`
+- Control lights: `light.turn_on` with target entity
+- Adjust climate: `climate.set_temperature` with temperature value
+- Any other Home Assistant service
+
+**Implementation:**
+- Added `callService()` method to HAClient
+- Added `ha_call_service` tool definition
+- Added handler in handlers registry
+- Integrated with HA Cursor Agent API endpoint
+
+**Requires:** HA Cursor Agent v2.9.2+
+
 ## [3.0.5] - 2025-11-10
 
 ### 🐛 Critical Bug Fix: Dashboard Apply
