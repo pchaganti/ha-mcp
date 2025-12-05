@@ -2,7 +2,7 @@
 
 **Build smart home automations with AI - just describe what you want in natural language** 🏠🤖
 
-Transform your smart home management! This MCP server enables Cursor AI to:
+Transform your smart home management! This MCP server enables Cursor AI, Visual Studio Code or your favourite IDE with MCP support to:
 - 📝 Analyze your Home Assistant configuration and devices
 - 🏗️ Create intelligent automations, scripts, and complete systems
 - 🔍 Monitor and troubleshoot through log analysis
@@ -33,7 +33,7 @@ Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered 
 
 ## 🎯 What can you do?
 
-**Cursor AI analyzes your actual Home Assistant configuration and creates smart automations tailored to YOUR devices:**
+**AI assistants analyze your actual Home Assistant configuration and create smart automations tailored to YOUR devices:**
 
 ### 🏗️ Build Complex Systems from Scratch
 
@@ -106,7 +106,7 @@ Before installing, you need:
 1. **Home Assistant** running (any version)
 2. **[HA Cursor Agent](https://github.com/Coolver/home-assistant-cursor-agent)** v2.2.0+ installed as add-on
 3. **Agent Key** from HA Cursor Agent (auto-generated on first start)
-4. **Cursor AI** editor installed
+4. **AI-enabled editor** installed (Cursor AI or VS Code + GitHub Copilot)
 
 ---
 
@@ -114,12 +114,12 @@ Before installing, you need:
 
 ### Step 0: Install Node.js (if not already installed)
 
-The MCP server requires Node.js to run on your computer (where Cursor is installed):
+The MCP server requires Node.js to run on your computer (where your AI editor is installed):
 
 1. Check if Node.js is already installed: open terminal and run `node --version`
 2. If not installed or version is below v18.0.0, download and install from **[nodejs.org](https://nodejs.org)**
 3. After installation, verify: `node --version` should show v18.0.0 or higher
-4. **Important:** Install Node.js on the computer where Cursor runs, not on the Home Assistant server
+4. **Important:** Install Node.js on the computer where your AI editor runs, not on the Home Assistant server
 
 ### Step 1: Install HA Cursor Agent
 
@@ -131,50 +131,24 @@ Install the agent in your Home Assistant:
 4. Install **HA Cursor Agent** (v2.0.0+)
 5. **Start** the agent
 
-### Step 2: Setup MCP in Cursor
+### Step 2: Setup MCP in Your AI Editor
 
 **Get configuration from Home Assistant:**
 1. Open your **Home Assistant** (usually http://homeassistant.local:8123)
 2. Go to **Settings** → **Add-ons** → **HA Cursor Agent**
 3. Click **"Open Web UI"** button
-4. Click **"Copy Configuration to Clipboard"**
-5. Configuration copied! ✅
 
-**Add to Cursor AI:**
-1. Open **Cursor** editor
-2. Go to **Settings** (Cmd/Ctrl + ,)
-3. Click **Tools & MCP** in the sidebar
-4. Click **New MCP Server**
-5. **Paste** the configuration you copied
-6. Click **Save**
-7. **Restart Cursor** completely (Cmd/Ctrl + Q and reopen)
+You'll see this interface with tabs for Cursor and VS Code + Copilot. Нажми на вкладку для Cursor или VS Code в зависимости от IDE в котором вы хотите работать с вашим Home Assistant и следуйте инструкциям, вам понадобится установить и настроить Cursor или VS Code чтобы они через MCP протокол могли взаимодействовать с агентом, который вы установили на борте Home Assistant.
 
-**For reference, here's what the configuration looks like:**
+Все готово, чтобы начать работать с вашими скриптами, автоматизациями и дашбордами Home Assistant с помощью AI.
 
-```json
-{
-  "mcpServers": {
-    "home-assistant": {
-      "command": "npx",
-      "args": ["-y", "@coolver/home-assistant-mcp@latest"],
-      "env": {
-        "HA_AGENT_URL": "http://homeassistant.local:8099",
-        "HA_AGENT_KEY": "YOUR_API_KEY_HERE"
-      }
-    }
-  }
-}
-```
-
-**Note:** The Web UI provides this exact configuration ready to copy - no need to type it manually!
-
-Done! Cursor AI is now connected to your Home Assistant 🎉
+Если вам нравится проект и вы хотите его развития, поставьте, пожалуйста, [GitHub Star](https://github.com/Coolver/home-assistant-cursor-agent) ⭐
 
 ### Step 3: Test Connection
 
 **Verify everything works:**
 
-Open Cursor and send this message to AI:
+Open your AI editor (Cursor or VS Code) and send this message to AI:
 ```
 Connect to my Home Assistant and show me:
 1. List of all my climate entities
@@ -187,7 +161,7 @@ If AI successfully returns your entities and agent status, you're all set! ✅
 
 **Troubleshooting:** If connection fails:
 - Check that HA Cursor Agent is running
-- Ensure Cursor was fully restarted
+- Ensure your AI editor was fully restarted
 - Verify configuration was pasted correctly
 
 ### Step 4: Start Building!
@@ -198,7 +172,7 @@ Just describe what you want in natural language - AI will handle the rest!
 
 ## 💬 Real-World Examples
 
-Once configured, describe what you want in natural language. Cursor AI will analyze YOUR configuration and create tailored solutions:
+Once configured, describe what you want in natural language. Your AI assistant will analyze YOUR configuration and create tailored solutions:
 
 ### 📦 HACS & Integrations (NEW in v2.2.0!) 🔥
 
@@ -464,7 +438,7 @@ If your agent runs on a different URL:
 
 ## 🛠️ Available Tools
 
-The MCP server provides these tools to Cursor AI:
+The MCP server provides these tools to AI assistants:
 
 ### 📁 Files
 - `ha_read_file` - Read configuration files
