@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.12] - 2025-12-06
+
+### 🔧 Update
+
+- ✅ Updated package name to @Coolver
+
 ## [3.2.11] - 2025-12-06
 
 ### ✨ New Feature
