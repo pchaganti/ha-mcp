@@ -1,8 +1,9 @@
 # MCP Home Assistant
 
-**Let AI build your Home Assistant automations – just describe what you want in natural language** 🏠🤖
+[![NPM Version](https://img.shields.io/npm/v/@coolver/home-assistant-mcp)](https://www.npmjs.com/package/@coolver/home-assistant-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**You should start by installing the Home Assistant Vibecode Agent:** https://github.com/Coolver/home-assistant-cursor-agent
+**Let AI build your Home Assistant automations – just describe what you want in natural language** 🏠🤖
 
 You describe your goal → AI inspects your Home Assistant → designs a custom solution → and deploys it on-board automatically. 🚀
 Transform the way you manage your smart home. This add-on enables **Cursor**, **Visual Studio Code (VS Code)**, or any **MCP-enabled IDE** to:
@@ -21,8 +22,6 @@ No more manual YAML editing or searching through documentation - just describe w
 
 Built on [Model Context Protocol](https://modelcontextprotocol.io/) and powered by [HA Vibecode Agent](https://github.com/Coolver/home-assistant-cursor-agent).
 
-[![NPM Version](https://img.shields.io/npm/v/@coolver/home-assistant-mcp)](https://www.npmjs.com/package/@coolver/home-assistant-mcp)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ### ✨ Key Features
 
@@ -128,11 +127,11 @@ The MCP server requires Node.js to run on your computer (where your AI editor is
 
 ### Step 1: Install HA Vibecode Agent
 
-Install the agent in your Home Assistant:
+Install the agent in your Home Assistant from :
 
 1. Go to **Settings** → **Add-ons** → **Add-on Store**
 2. Click **⋮** → **Repositories**
-3. Add: `https://github.com/Coolver/home-assistant-cursor-agent`
+3. Add: `https://github.com/Coolver/home-assistant-vibecode-agent`
 4. Install **HA Vibecode Agent** (v2.0.0+)
 5. **Start** the agent
 
@@ -193,7 +192,7 @@ If your agent runs on a different URL:
       "command": "npx",
       "args": ["-y", "@coolver/home-assistant-mcp@latest"],
       "env": {
-        "HA_AGENT_URL": "http://192.168.1.100:8099",
+        "HA_AGENT_URL": "http://<home-assistant-host>:8099",
         "HA_AGENT_KEY": "your_api_key_here"
       }
     }
@@ -229,15 +228,6 @@ This error means Node.js is not installed or not found in your system PATH.
 3. Verify installation by running `node --version` in a terminal
 
 **Important:** Node.js must be installed on **your computer** (where Cursor, VS Code, Claude or other IDE runs), not on the Home Assistant server.
-
-### Check Agent Logs
-
-Ask Cursor AI:
-```
-Show me the agent logs
-```
-
-This will display what's happening in the agent.
 
 ---
 
