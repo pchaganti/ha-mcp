@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [3.2.13] - 2025-12-06
+## [3.2.14] - 2025-12-06
 
 ### ✨ NEW: Entity/Area/Device Registry API Support
 
