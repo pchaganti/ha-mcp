@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.20] - 2025-12-22
+
+### 🐛 Bug Fix
+
+- ✅ **Cleaner logs**: Removed informational console messages to avoid [error] tags in Cursor logs
+  - Startup connection messages are now silent (only errors are shown)
+  - Added DEBUG mode support for verbose logging if needed (set DEBUG=true)
+  - Prevents confusion with [error] tags for valid operations
+  - Logs are now cleaner and only show real errors
+
 ## [3.2.19] - 2025-12-22
 
 ### 🐛 Bug Fix
