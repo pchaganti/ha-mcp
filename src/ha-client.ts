@@ -243,10 +243,15 @@ export class HAClient {
   }
 
   // Git/Backup API
-  async gitCommit(message: string): Promise<any> {
+  async gitCommit(message?: string): Promise<any> {
     const response = await this.client.post(`/api/backup/commit`, {
-      message,
+      message: message || null,
     });
+    return response.data;
+  }
+
+  async gitPending(): Promise<any> {
+    const response = await this.client.get(`/api/backup/pending`);
     return response.data;
   }
 

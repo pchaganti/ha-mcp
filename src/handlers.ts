@@ -317,7 +317,29 @@ export const toolHandlers: Record<string, ToolHandler> = {
 
   // Git/Backup Operations
   'ha_git_commit': async (client, args) => {
+    // message is optional: if not provided and git_versioning_auto=false,
+    // the API returns suggested_message that needs user confirmation
     const result = await client.gitCommit(args.message);
+    
+    // If needs_confirmation is true, return the suggestion for user to confirm/edit
+    if (result.needs_confirmation) {
+      return jsonResponse({
+        needs_confirmation: true,
+        suggested_message: result.suggested_message,
+        summary: result.summary,
+        files_modified: result.files_modified || [],
+        files_added: result.files_added || [],
+        files_deleted: result.files_deleted || [],
+        diff: result.diff || '',
+        message: 'Commit message suggestion - user needs to confirm or edit before committing'
+      });
+    }
+    
+    return jsonResponse(result);
+  },
+
+  'ha_git_pending': async (client, args) => {
+    const result = await client.gitPending();
     return jsonResponse(result);
   },
 

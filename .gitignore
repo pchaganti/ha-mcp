@@ -32,3 +32,10 @@ coverage/
 
 # Misc
 *.tsbuildinfo
+
+# Documentation (internal)
+COMMIT_MESSAGES.md
+
+# Registry tokens (sensitive)
+.mcpregistry_github_token
+.mcpregistry_registry_token

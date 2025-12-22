@@ -476,16 +476,23 @@ export const tools: Tool[] = [
   // Git/Backup Operations
   {
     name: 'ha_git_commit',
-    description: '[WRITE] Commit configuration to Git. Creates backup snapshot.',
+    description: '[WRITE] Commit configuration to Git. Creates backup snapshot. If message is not provided and git_versioning_auto=false, returns suggested commit message that needs user confirmation.',
     inputSchema: {
       type: 'object',
       properties: {
         message: {
           type: 'string',
-          description: 'Commit message describing the changes',
+          description: 'Commit message describing the changes. If omitted and git_versioning_auto=false, the API will return a suggested message that you should show to the user for confirmation/editing before committing.',
         },
       },
-      required: ['message'],
+    },
+  },
+  {
+    name: 'ha_git_pending',
+    description: '[READ-ONLY] Get information about uncommitted changes in shadow repository. Useful when git_versioning_auto=false to see what changes are pending commit. Safe operation - only reads data.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
     },
   },
   {
