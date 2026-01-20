@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.22] - 2026-01-20
+
+### 🔧 Version Metadata Sync
+
+- ✅ **Version consistency**: Synchronized version metadata across all files (package.json, src/index.ts, CHANGELOG.md)
+- ✅ **Internal version tracking**: MCP server now reports correct version (3.2.22) in server metadata
+
 ## [3.2.21] - 2026-01-20
 
 ### ✨ Script listing & single-script fetch to save tokens
