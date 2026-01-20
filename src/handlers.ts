@@ -174,7 +174,7 @@ export const toolHandlers: Record<string, ToolHandler> = {
 
   // Entity Operations
   'ha_list_entities': async (client, args) => {
-    const result = await client.listEntities(args.domain);
+    const result = await client.listEntities(args);
     return jsonResponse(result);
   },
 
@@ -248,7 +248,7 @@ export const toolHandlers: Record<string, ToolHandler> = {
   },
 
   'ha_get_device_registry_entry': async (client, args) => {
-    const result = await client.getDeviceRegistryEntry(args.device_id);
+    const result = await client.getDeviceRegistryEntry(args.device_id, args.include_entities);
     return jsonResponse(result);
   },
 

@@ -69,13 +69,36 @@ export const tools: Tool[] = [
   // Entity Operations (Read-only)
   {
     name: 'ha_list_entities',
-    description: '[READ-ONLY] List all entities in Home Assistant. Safe operation - only reads data.',
+    description:
+      '[READ-ONLY] List entities in Home Assistant with optional filters, pagination and lightweight modes. Safe operation - only reads data. Use this instead of dumping all entities at once to avoid overloading LLM context. Use ids_only=true for most token-efficient discovery of what entities exist.',
     inputSchema: {
       type: 'object',
       properties: {
         domain: {
           type: 'string',
           description: 'Optional domain filter (e.g., "light", "climate", "sensor")',
+        },
+        search: {
+          type: 'string',
+          description: 'Optional substring to search in entity_id or friendly_name (e.g., "kitchen")',
+        },
+        page: {
+          type: 'number',
+          description: 'Page number (1-based, default 1). Use for pagination when there are many entities.',
+        },
+        page_size: {
+          type: 'number',
+          description: 'Entities per page (default 250, max 500). Helps keep responses small for LLMs.',
+        },
+        ids_only: {
+          type: 'boolean',
+          description:
+            'If true, return only list of entity IDs without any other data. Most token-efficient option - use when you just need to discover what entities exist (similar to ha_list_scripts with ids_only=true).',
+        },
+        summary_only: {
+          type: 'boolean',
+          description:
+            'If true, return only lightweight summary per entity (entity_id, state, domain, friendly_name) instead of full state objects. Ignored if ids_only=true. Recommended when exploring large installations.',
         },
       },
     },
@@ -289,13 +312,19 @@ export const tools: Tool[] = [
   },
   {
     name: 'ha_get_device_registry_entry',
-    description: '[READ-ONLY] Get single device from Device Registry. Safe operation - only reads data.',
+    description:
+      '[READ-ONLY] Get single device from Device Registry with optional entities list. Safe operation - only reads data. Use include_entities=true to get all entities belonging to this device (entity_id, friendly_name, domain, device_class, current state) - useful for understanding what sensors/switches/etc. a device provides.',
     inputSchema: {
       type: 'object',
       properties: {
         device_id: {
           type: 'string',
           description: 'Device ID',
+        },
+        include_entities: {
+          type: 'boolean',
+          description:
+            'If true, also return all entities belonging to this device with their descriptions (entity_id, friendly_name, domain, device_class, current state). Recommended when user asks about what entities a device has.',
         },
       },
       required: ['device_id'],

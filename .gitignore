@@ -39,3 +39,4 @@ COMMIT_MESSAGES.md
 # Registry tokens (sensitive)
 .mcpregistry_github_token
 .mcpregistry_registry_token
+anyvision_r_id_ed25519*

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.23] - 2026-01-20
+
+### ✨ Device entity discovery support
+
+**Better device understanding for AI assistants**
+
+- ✅ **Device entity discovery**: `ha_get_device_registry_entry` now supports `include_entities` parameter to retrieve all entities belonging to a device with their descriptions (entity_id, friendly_name, domain, device_class, current state) — perfect for understanding what sensors, switches, and other entities a physical device provides
+- ✅ **Enhanced device information**: When `include_entities=true`, responses include enriched entity information sorted by domain, making it easy for AI to understand device capabilities and help users work with specific devices
+
 ## [3.2.22] - 2026-01-20
 
 ### 🔧 Version Metadata Sync

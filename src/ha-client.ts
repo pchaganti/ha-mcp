@@ -66,11 +66,19 @@ export class HAClient {
   }
 
   // Entities API
-  async listEntities(domain?: string): Promise<any[]> {
-    const response = await this.client.get(`/api/entities/list`, {
-      params: domain ? { domain } : {},
-    });
-    return response.data.entities;
+  async listEntities(options?: {
+    domain?: string;
+    search?: string;
+    page?: number;
+    page_size?: number;
+    ids_only?: boolean;
+    summary_only?: boolean;
+    area_id?: string;
+    area_name?: string;
+  }): Promise<any> {
+    const params = options || {};
+    const response = await this.client.get(`/api/entities/list`, { params });
+    return response.data;
   }
 
   async getEntityState(entityId: string): Promise<any> {
@@ -158,9 +166,12 @@ export class HAClient {
     return response.data.devices;
   }
 
-  async getDeviceRegistryEntry(deviceId: string): Promise<any> {
-    const response = await this.client.get(`/api/registries/devices/${deviceId}`);
-    return response.data.device;
+  async getDeviceRegistryEntry(deviceId: string, includeEntities?: boolean): Promise<any> {
+    const response = await this.client.get(`/api/registries/devices/${deviceId}`, {
+      params: includeEntities ? { include_entities: true } : {},
+    });
+    // Return full response (device + entities if requested)
+    return response.data;
   }
 
   async updateDeviceRegistry(deviceId: string, updateData: any): Promise<any> {
