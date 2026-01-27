@@ -235,6 +235,14 @@ export class HAClient {
     return response.data;
   }
 
+  async updateAutomation(automationId: string, config: any, commitMessage?: string): Promise<any> {
+    const response = await this.client.put(`/api/automations/update/${automationId}`, {
+      ...config,
+      commit_message: commitMessage,
+    });
+    return response.data;
+  }
+
   async deleteAutomation(automationId: string, commitMessage?: string): Promise<any> {
     const response = await this.client.delete(`/api/automations/delete/${automationId}`, {
       params: { commit_message: commitMessage },
@@ -263,6 +271,14 @@ export class HAClient {
 
   async getScript(scriptId: string): Promise<any> {
     const response = await this.client.get(`/api/scripts/get/${scriptId}`);
+    return response.data;
+  }
+
+  async updateScript(scriptId: string, config: any, commitMessage?: string): Promise<any> {
+    const response = await this.client.put(`/api/scripts/update/${scriptId}`, {
+      ...config,
+      commit_message: commitMessage,
+    });
     return response.data;
   }
 

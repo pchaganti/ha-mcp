@@ -113,12 +113,20 @@ function generateCommitMessage(operation: string, args: any): string {
       const automationAlias = args.config?.alias || args.config?.id || 'automation';
       return `Add automation: ${automationAlias}`;
 
+    case 'update_automation':
+      const updateAutomationAlias = args.config?.alias || args.automation_id || 'automation';
+      return args.description || `Update automation: ${updateAutomationAlias}`;
+
     case 'delete_automation':
       return `Remove automation: ${args.automation_id}`;
 
     case 'create_script':
       const scriptAlias = args.config?.alias || Object.keys(args.config || {})[0] || 'script';
       return `Add script: ${scriptAlias}`;
+
+    case 'update_script':
+      const updateScriptAlias = args.config?.alias || Object.keys(args.config || {})[0] || args.script_id || 'script';
+      return args.description || `Update script: ${updateScriptAlias}`;
 
     case 'delete_script':
       return `Remove script: ${args.script_id}`;
@@ -296,6 +304,12 @@ export const toolHandlers: Record<string, ToolHandler> = {
     return jsonResponse(result);
   },
 
+  'ha_update_automation': async (client, args) => {
+    const commitMessage = generateCommitMessage('update_automation', args);
+    const result = await client.updateAutomation(args.automation_id, args.config, commitMessage);
+    return jsonResponse(result);
+  },
+
   'ha_delete_automation': async (client, args) => {
     const commitMessage = generateCommitMessage('delete_automation', args);
     const result = await client.deleteAutomation(args.automation_id, commitMessage);
@@ -316,6 +330,12 @@ export const toolHandlers: Record<string, ToolHandler> = {
 
   'ha_get_script': async (client, args) => {
     const result = await client.getScript(args.script_id);
+    return jsonResponse(result);
+  },
+
+  'ha_update_script': async (client, args) => {
+    const commitMessage = generateCommitMessage('update_script', args);
+    const result = await client.updateScript(args.script_id, args.config, commitMessage);
     return jsonResponse(result);
   },
 

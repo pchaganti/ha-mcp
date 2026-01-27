@@ -474,6 +474,28 @@ export const tools: Tool[] = [
     },
   },
   {
+    name: 'ha_update_automation',
+    description: '[WRITE] Update existing automation in Home Assistant. MODIFIES configuration - requires approval. Provide a meaningful description of what changed and why (e.g., "Update trigger time", "Add new condition", "Modify action sequence").',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        automation_id: {
+          type: 'string',
+          description: 'Automation ID to update (e.g., "my_automation")',
+        },
+        config: {
+          type: 'object',
+          description: 'Updated automation configuration (id, alias, trigger, condition, action)',
+        },
+        description: {
+          type: 'string',
+          description: 'Optional: Human-readable description of what changed and why (e.g., "Update trigger time to 7 AM", "Add temperature condition", "Modify light brightness in action"). This will be used in Git commit message.',
+        },
+      },
+      required: ['automation_id', 'config'],
+    },
+  },
+  {
     name: 'ha_delete_automation',
     description: '[WRITE] Delete automation from Home Assistant. MODIFIES configuration - requires approval.',
     inputSchema: {
@@ -532,6 +554,28 @@ export const tools: Tool[] = [
           description: 'If true, return only list of script IDs. If false (default), return full script configurations.',
         },
       },
+    },
+  },
+  {
+    name: 'ha_update_script',
+    description: '[WRITE] Update existing script in Home Assistant. MODIFIES configuration - requires approval. Provide a meaningful description of what changed and why (e.g., "Update sequence actions", "Add delay", "Modify service call parameters").',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        script_id: {
+          type: 'string',
+          description: 'Script ID to update (e.g., "my_script")',
+        },
+        config: {
+          type: 'object',
+          description: 'Updated script configuration object',
+        },
+        description: {
+          type: 'string',
+          description: 'Optional: Human-readable description of what changed and why (e.g., "Update sequence to add delay", "Modify service call target", "Add new action step"). This will be used in Git commit message.',
+        },
+      },
+      required: ['script_id', 'config'],
     },
   },
   {
