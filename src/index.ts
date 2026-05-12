@@ -31,10 +31,18 @@ const HA_AGENT_URL = process.env.HA_AGENT_URL || 'http://homeassistant.local:809
 const HA_AGENT_KEY = process.env.HA_AGENT_KEY;
 
 if (!HA_AGENT_KEY) {
-  // Always log errors - these are critical
-  console.error('❌ Error: HA_AGENT_KEY environment variable is required');
-  console.error('Please set it in Cursor: Settings → Tools & MCP → Add Custom MCP Server');
-  console.error('Or manually in ~/.cursor/mcp.json');
+  console.error('');
+  console.error('❌ HA_AGENT_KEY is not set.');
+  console.error('');
+  console.error('To use this MCP you need the HA Vibecode Agent running inside Home Assistant.');
+  console.error('');
+  console.error('  1. Install the agent add-on:');
+  console.error('     https://github.com/Coolver/home-assistant-vibecode-agent');
+  console.error('');
+  console.error('  2. Open the add-on Web UI to get your API key and MCP config.');
+  console.error('');
+  console.error('  3. Set HA_AGENT_URL and HA_AGENT_KEY in your IDE\'s MCP config.');
+  console.error('');
   process.exit(1);
 }
 
@@ -130,13 +138,17 @@ async function main() {
     }
   } catch (error: any) {
     // Always log errors - these are important
-    console.error('❌ Failed to connect to HA Vibecode Agent');
-    console.error(`URL: ${HA_AGENT_URL}`);
-    console.error(`Error: ${error.message}`);
-    console.error('\nPlease ensure:');
-    console.error('1. HA Vibecode Agent add-on is running');
-    console.error('2. HA_AGENT_URL is correct');
-    console.error('3. HA_AGENT_KEY is valid');
+    console.error('');
+    console.error('❌ Cannot reach HA Vibecode Agent');
+    console.error(`   URL:   ${HA_AGENT_URL}`);
+    console.error(`   Error: ${error.message}`);
+    console.error('');
+    console.error('Checklist:');
+    console.error('  1. The agent add-on is installed and running in Home Assistant.');
+    console.error('     https://github.com/Coolver/home-assistant-vibecode-agent');
+    console.error('  2. HA_AGENT_URL points to the correct host and port.');
+    console.error('  3. HA_AGENT_KEY matches the key shown in the add-on Web UI.');
+    console.error('');
     process.exit(1);
   }
 
